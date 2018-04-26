@@ -1,0 +1,33 @@
+<?php
+session_start();
+include'connection.php';
+if($_SESSION['name']!='')
+{
+	$name=$_SESSION['name'];
+}
+else
+{
+	header("Location:index.php");
+}
+?>
+<html>
+<style type="text/css">
+
+</style>
+<link rel="stylesheet" type="text/css" href="/SID/css/index.css">
+<link rel="stylesheet" type="text/css" href="/SID/css/dropdown.css">
+<body>
+<div class="topnav">
+<a href="clg_index.php">Home</a>
+<a href="#news">News</a>
+<a href="admission.php">New Addmission</a>
+<a href="sem_admission.php">Semister Admission</a>
+<a style="float: left" href="find_stu.php"> Find Student details</a>
+</div>
+<div class="dropdown" style="position: absolute; right:.5cm; top:.2cm">
+  <?php echo $name;?><br>
+   <div class="dropdown-content">
+    <a href="/SID/php_pages/edit_clg.php"> edit profile</a><br>
+    <a href="/SID/php_pages/logout.php"> logout</a><br>
+  </div>
+  </div>
